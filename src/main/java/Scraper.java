@@ -6,8 +6,13 @@ import org.jsoup.nodes.Element;
  * Created by Antons on 2017-02-27.
  */
 public class Scraper {
+	String result;
+	
+	public Scraper(String result) {
+		this.result = result;
+	}
 
-    public static void imdbscraper() throws Exception {
+    public void imdbscraper() throws Exception {
         final Document document = Jsoup.connect("http://www.imdb.com/chart/top").get();
 
         for(Element row : document.select("table.chart.full-width tr")) {
@@ -15,15 +20,16 @@ public class Scraper {
             final String title = row.select(".titleColumn a").text();
             final String rating = row.select(".imdbRating").text();
 
-            System.out.println(title + " || " + rating);
+            result = (title + " || " + rating);
+            
+            //System.out.println(result);
+            //för testning
 
         }
     }
-
-    public static void main(String[] args) throws Exception {
-
-        imdbscraper();
-
+    
+    public String getResult() {
+    	return result;
     }
 
 }
