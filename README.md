@@ -1,6 +1,7 @@
 # imdbscraper
-A webscraper scraping IMDB's top 250 and printing out the result with title and rating.
+A webscraper scraping IMDB's top 250 printing out result with title and rating.
+I am using jsoup HTML parser for the scraping method.
 
 TO DO:
-- a GUI for the tool
+- GUI
 ...
